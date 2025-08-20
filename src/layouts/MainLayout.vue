@@ -6,7 +6,7 @@
 
         <q-toolbar-title>
           <div class="absolute-center">
-            <q-icon name="savings" />
+            <q-icon name="people_alt" />
             Share2Care
           </div>
         </q-toolbar-title>
