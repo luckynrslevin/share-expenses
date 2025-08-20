@@ -7,3 +7,10 @@
     }
   }
 }
+
+// number inputs
+// TODO: Does not work for some reason, minor topic solve later ...
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin-left: 100px;
+}
