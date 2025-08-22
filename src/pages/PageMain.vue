@@ -12,8 +12,14 @@
         </q-item>
       </q-list>
     </div>
-    <q-footer>
-      <div class="row q-pa-sm q-col-gutter-sm">
+    <q-footer class="bg-transparent">
+      <div class="row q-mb-sm q-px-md q-py-sm shadow-up-3">
+        <dic class="col text-grey-7 text-h6">Balance: </dic>
+        <dic :class="useAmountColorClass(balance)" class="col text-h6 text-right">
+          {{ useCurrencify(balance) }}
+        </dic>
+      </div>
+      <div class="row q-pb-sm q-col-gutter-sm bg-primary">
         <div class="col">
           <q-input placeholder="Name" bg-color="white" outlined dense></q-input>
         </div>
@@ -40,7 +46,7 @@
 /*
   imports
 */
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useCurrencify } from 'src/use/useCurrencify'
 import { useAmountColorClass } from 'src/use/useAmountColorClass'
 
@@ -70,4 +76,14 @@ const entries = ref([
     amount: 0,
   },
 ])
+
+/*
+  Calculate balance
+*/
+
+const balance = computed(() => {
+  return entries.value.reduce((accumulator, { amount }) => {
+    return accumulator + amount
+  }, 0)
+})
 </script>
